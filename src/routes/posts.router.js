@@ -30,6 +30,7 @@ router.patch("/:id", auth, async (request, response) => {
   try {
     const id = request.params.id;
     const postData = request.body;
+    postData.updatedAt = new Date();
     const postUpdated = await postUseCases.updateById(id, postData);
     response.json({
       success: true,
@@ -64,7 +65,7 @@ router.post("/", auth, async (request, response) => {
   }
 });
 
-router.get("/", auth, async (request, response) => {
+router.get("/", async (request, response) => {
   try {
     const posts = await postUseCases.getAll();
     response.json({
