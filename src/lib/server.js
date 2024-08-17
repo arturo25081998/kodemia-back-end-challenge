@@ -6,7 +6,11 @@ const usersRoutes = require("../routes/users.router");
 const postRoutes = require("../routes/posts.router");
 const authRoutes = require("../routes/auth.router");
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://desafio-maquetado-three.vercel.app/",
+  })
+);
 app.use(helmet());
 app.use(express.json());
 
