@@ -1,11 +1,16 @@
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
-
 const app = express();
+const usersRoutes = require("../routes/users.router");
+const postRoutes = require("../routes/posts.router");
+
 app.use(cors());
 app.use(helmet());
 app.use(express.json());
+
+app.use("/users", usersRoutes);
+app.use("/posts", postRoutes);
 
 app.get("/", (request, response) => {
   response.json({
