@@ -59,22 +59,4 @@ router.post("/", async (request, response) => {
   }
 });
 
-router.post("/login", async (request, response) => {
-  try {
-    const userData = request.body;
-    const token = await userUseCases.login(userData);
-    response.json({
-      success: true,
-      message: "Koder logged",
-      data: { token },
-    });
-  } catch (error) {
-    response.status(error.status || 500);
-    response.json({
-      success: false,
-      message: error.message,
-    });
-  }
-});
-
 module.exports = router;

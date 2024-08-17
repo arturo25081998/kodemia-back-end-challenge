@@ -4,6 +4,7 @@ const helmet = require("helmet");
 const app = express();
 const usersRoutes = require("../routes/users.router");
 const postRoutes = require("../routes/posts.router");
+const authRoutes = require("../routes/auth.router");
 
 app.use(cors());
 app.use(helmet());
@@ -11,6 +12,7 @@ app.use(express.json());
 
 app.use("/users", usersRoutes);
 app.use("/posts", postRoutes);
+app.use("/auth", authRoutes);
 
 app.get("/", (request, response) => {
   response.json({
