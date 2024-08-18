@@ -5,27 +5,10 @@ const app = express();
 const usersRoutes = require("../routes/users.router");
 const postRoutes = require("../routes/posts.router");
 const authRoutes = require("../routes/auth.router");
-/*
-app.use(
-  cors({
-    origin: "https://desafio-maquetado-three.vercel.app/",
-  })
-);
-*/
-const allowedOrigins = [
-  "https://desafio-maquetado-three.vercel.app/",
-  "http://127.0.0.1:5500/",
-];
 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: "https://desafio-maquetado-three.vercel.app/",
   })
 );
 
