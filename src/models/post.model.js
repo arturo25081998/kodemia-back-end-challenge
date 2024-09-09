@@ -5,7 +5,7 @@ const postSchema = mongoose.Schema({
     type: String,
     required: true,
     minLength: 2,
-    maxLength: 50,
+    maxLength: 100,
   },
   image: {
     type: String,
@@ -15,6 +15,18 @@ const postSchema = mongoose.Schema({
     type: String,
     required: true,
     minLength: 15,
+  },
+  tags: {
+    type: Array,
+    default: [],
+  },
+  reactions: {
+    type: Array,
+    default: [],
+  },
+  comments: {
+    type: Array,
+    default: [],
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
