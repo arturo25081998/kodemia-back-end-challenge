@@ -15,7 +15,9 @@ async function getAll(search) {
     };
   }
 
-  const posts = await Post.find(searchObject);
+  const posts = await Post.find(searchObject)
+    .populate("user", "name profilePic")
+    .exec();
   return posts;
 }
 
