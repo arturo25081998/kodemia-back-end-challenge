@@ -9,7 +9,7 @@ const authRoutes = require("../routes/auth.router");
 app.use(
   cors({
     //origin: "https://desafio-maquetado-three.vercel.app/",
-    origin: "http://localhost:3000",
+    origin: "http://localhost:3000/",
   })
 );
 
