@@ -82,7 +82,25 @@ router.get("/", async (request, response) => {
   }
 });
 
-router.get("/:search", auth, async (request, response) => {
+router.get("/:id", async (request, response) => {
+  try {
+    const id = request.params.id;
+    const post = await postUseCases.getById(id);
+    response.json({
+      success: true,
+      message: "All post",
+      data: { post },
+    });
+  } catch (error) {
+    response.status(error.status || 500);
+    response.json({
+      success: false,
+      message: error.message,
+    });
+  }
+});
+
+router.get("/search/:search", auth, async (request, response) => {
   try {
     const search = request.params.search;
     const posts = await postUseCases.getAll(search);
