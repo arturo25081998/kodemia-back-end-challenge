@@ -23,7 +23,7 @@ async function getAll(search) {
 
 async function getById(id) {
   const existingPost = await Post.findById(id)
-    .populate("user", "name profilePic")
+    .populate("user", "name profilePic createAt")
     .exec();
   if (!existingPost) {
     throw createError(404, "Post not found");
