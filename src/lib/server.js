@@ -8,7 +8,7 @@ const authRoutes = require("../routes/auth.router");
 
 app.use(
   cors({
-    origin: "https://dev-to-arturo-juarezs-projects.vercel.app/",
+    origin: "https://dev-to-arturo-juarezs-projects.vercel.app",
     //origin: "http://localhost:3000",
   })
 );
